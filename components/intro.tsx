@@ -1,11 +1,12 @@
+"use client";
 import React from 'react'
 
-const intro = () => {
+const Intro = () => {
     return (
-        <div>
-
+        <div className='text-center font-bold text-2xl text-red-500'>
+            Hello this is intro
         </div>
     )
 }
 
-export default intro
+export default Intro
