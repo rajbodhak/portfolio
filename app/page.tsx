@@ -1,6 +1,8 @@
+import AboutMe from "@/components/AboutMe";
 import CustomScreen from "@/components/CustomScreen";
 import Header from "@/components/Header";
 import Intro from "@/components/Intro";
+import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
@@ -8,6 +10,8 @@ export default function Home() {
       <Header />
       <CustomScreen>
         <Intro />
+        <AboutMe />
+        <Skills />
       </CustomScreen>
     </>
   );

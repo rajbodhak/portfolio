@@ -34,7 +34,7 @@ const Intro = () => {
                 <Image src="/rajidesu.webp"
                     alt='rajidesu'
                     fill
-                    className='object-cover'
+                    className='object-cover '
                     sizes="(max-width:768px) 128px, 160px"
                     priority
                 />
