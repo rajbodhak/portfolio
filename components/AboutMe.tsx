@@ -67,7 +67,7 @@ const AboutMe = () => {
                 </div>
 
                 <section className="border border-[#FF6B6B] text-[#E0E0E0] flex-1 p-4 md:p-6 flex flex-col rounded-md">
-                    <h2 className="text-3xl font-bold mb-4 bg-gradient-to-br from-[#8B0000] via-[#C9184A] to-[#FF4E50] text-transparent bg-clip-text">About Me</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4 bg-gradient-to-br from-[#8B0000] via-[#C9184A] to-[#FF4E50] text-transparent bg-clip-text">About Me</h2>
                     <div className="text-sm md:text-base max-w-none flex-1">
                         <p className="leading-relaxed mb-2">
                             I’m Raj Bodhak, a full stack developer who builds fast, functional, and user-focused web experiences. I enjoy turning ideas into real products. Whether it's frontend or backend, I focus on clarity, speed, and purpose.

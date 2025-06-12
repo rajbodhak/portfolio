@@ -150,9 +150,9 @@ const Skills = () => {
     return (
         <CustomScreen>
             <div className='p-3 mb-3 border border-[#FF6B6B] rounded-md'>
-                <h1 className='px-2 font-bold text-2xl md:text-4xl bg-gradient-to-br from-[#8B0000] via-[#C9184A] to-[#FF4E50] text-transparent bg-clip-text'>Skills & Tools</h1>
-                <div className='max-w-5xl mx-auto px-2 py-4'>
-                    <div className='grid grid-cols-2 gap-3'>
+                <h1 className='md:px-2 font-bold text-2xl md:text-4xl bg-gradient-to-br from-[#8B0000] via-[#C9184A] to-[#FF4E50] text-transparent bg-clip-text uppe'>Skills & Tools</h1>
+                <div className='max-w-5xl mx-auto md:px-2 py-3'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
                         {/* Frontend Section */}
                         <div className='border border-[#FF6B6B] rounded-md flex flex-col p-3'>
                             <div className='mb-2'>
@@ -260,15 +260,3 @@ const Skills = () => {
 }
 
 export default Skills
-
-
-{/* <div className='flex flex-col justify-between items-center gap-2'>
-
-                <div className='h-20 w-20 bg-gradient-to-br from-[#8B0000] via-[#C9184A] to-[#FF4E50]'>gradient</div>
-                <div className='h-20 w-20 dark:bg-gray-800 bg-[#EAEAEA]'>Main</div>
-                <div className='h-20 w-20 bg-[#FF6B6B]'>Link</div>
-                <div className='h-20 w-20 bg-[#1A1A1A]'>Card</div>
-                <div className='h-20 w-20 bg-[#ECEFF1]'>Icon</div>
-                <div className='h-20 w-20 bg-[#E0E0E0]'>Icon</div>
-                <div className='h-20 w-20 bg-[#F5F5F5]'>Icon</div>
-</div> */}
