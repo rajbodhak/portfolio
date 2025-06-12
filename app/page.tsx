@@ -2,6 +2,7 @@ import AboutMe from "@/components/AboutMe";
 import CustomScreen from "@/components/CustomScreen";
 import Header from "@/components/Header";
 import Intro from "@/components/Intro";
+import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <Intro />
         <AboutMe />
         <Skills />
+        <Projects />
       </CustomScreen>
     </>
   );
