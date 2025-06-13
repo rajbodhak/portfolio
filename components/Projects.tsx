@@ -75,7 +75,9 @@ const Projects = () => {
     const hasMoreProjects = allProjects.length > 2;
     return (
         <CustomScreen>
-            <div className='p-3 mb-3 border border-[#FF6B6B] rounded-md'>
+            <section className='p-3 mb-3 border border-[#FF6B6B] rounded-md relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] hover:border-[#FF6B6B]/60 transition-all duration-300 hover:shadow-2xl hover:shadow-[#FF6B6B]/10'>
+                {/* Background Effects */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/5 to-transparent"></div>
                 <h1 className='px-2 font-bold text-2xl md:text-4xl bg-gradient-to-br from-[#8B0000] via-[#C9184A] to-[#FF4E50] text-transparent bg-clip-text mb-3'>
                     Projects
                 </h1>
@@ -98,24 +100,20 @@ const Projects = () => {
 
                     {/* More Button - Show if there are more projects */}
                     {hasMoreProjects && (
-                        <div className='flex justify-center mt-2 md:mt-3'>
+                        <div className='mt-2 md:mt-3 flex justify-center'>
                             <Link href="/projects">
-                                <button className='group relative overflow-hidden px-3 py-2 md:px-4 md:py-2 rounded-xl bg-gradient-to-r from-[#1a1a1a] via-[#2a2a2a] to-[#1a1a1a] border-2 border-[#FF6B6B]/40 hover:border-[#FF6B6B]/80 transition-all duration-500 hover:shadow-2xl hover:shadow-[#FF6B6B]/20 '>
-                                    {/* Vintage fade overlay */}
-                                    <div className='absolute inset-0 bg-gradient-to-r from-[#8B0000]/10 via-[#C9184A]/10 to-[#FF4E50]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
-
-                                    {/* Animated background bars */}
-                                    <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-[#FF6B6B]/20 to-transparent'></div>
+                                <button className='w-full md:w-auto bg-gradient-to-r from-[#8B0000] via-[#C9184A] to-[#FF4E50] text-white py-2 px-4 md:py-3 md:px-5 rounded-lg font-semibold hover:from-[#b80606] hover:via-[#ee3939] hover:to-[#FF6B6B] focus:ring-2 focus:ring-[#FF6B6B]/50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 group/button relative overflow-hidden'>
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
+                                    translate-x-[-200%] group-hover/button:translate-x-[200%] transition-transform duration-700 ease-in-out"></div>
 
                                     {/* Button content */}
                                     <div className='relative flex items-center gap-3 text-[#F5F5F5] group-hover:text-white transition-colors duration-300'>
 
-
-                                        <span className='font-semibold text-xs md:text-lg tracking-wide group-hover:tracking-wider transition-all duration-300'>
+                                        <span className='font-semibold text-xs md:text-base tracking-wide group-hover:tracking-wider transition-all duration-300'>
                                             View All Projects
                                         </span>
 
-                                        <FaArrowRight className='text-[#FF6B6B] group-hover:translate-x-1 group-hover:scale-110 transition-all duration-300' size={16} />
+                                        <FaArrowRight className='text-[#F5F5F5] group-hover:translate-x-1 group-hover:scale-110 transition-all duration-300' size={16} />
                                     </div>
 
                                     {/* Glowing border effect */}
@@ -125,7 +123,7 @@ const Projects = () => {
                         </div>
                     )}
                 </div>
-            </div>
+            </section>
         </CustomScreen>
     )
 }
