@@ -35,37 +35,22 @@ export default function ContactSection() {
         }));
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        setStatus({ type: 'loading', message: 'Sending message...' });
+        setStatus({ type: 'loading', message: 'Redirecting to Gmail...' });
 
-        try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+        const subject = encodeURIComponent(formData.subject || 'Message from Portfolio');
+        const body = encodeURIComponent(
+            `Hi Raj,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\n---\nSent from your portfolio contact form`
+        );
 
-            const result = await response.json();
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=YOUR_ACTUAL_EMAIL@gmail.com&su=${subject}&body=${body}`;
 
-            if (response.ok) {
-                setStatus({
-                    type: 'success',
-                    message: 'Message sent successfully! I\'ll get back to you within 24 hours.'
-                });
-                setFormData({ name: '', email: '', subject: '', message: '' });
-            } else {
-                throw new Error(result.error || 'Failed to send message');
-            }
-        } catch (error) {
-            console.error('Contact form error:', error);
-            setStatus({
-                type: 'error',
-                message: 'Failed to send message. Please try again or contact me directly.'
-            });
-        }
+        setTimeout(() => {
+            window.open(gmailUrl, '_blank');
+            setStatus({ type: 'success', message: 'Redirected to Gmail! Please send the message from there.' });
+            setFormData({ name: '', email: '', subject: '', message: '' });
+        }, 1000);
     };
 
     const socialLinks = [
@@ -208,7 +193,7 @@ export default function ContactSection() {
                                 className="w-full bg-gradient-to-r from-[#8B0000] via-[#C9184A] to-[#FF4E50] text-white py-2.5 px-4 md:py-3 md:px-6 rounded-lg text-sm md:text-base font-semibold hover:from-[#b80606] hover:via-[#ee3939] hover:to-[#FF6B6B] focus:ring-2 focus:ring-[#FF6B6B]/50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 group/button relative overflow-hidden"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
-            translate-x-[-200%] group-hover/button:translate-x-[200%] transition-transform duration-700 ease-in-out"></div>
+                                translate-x-[-200%] group-hover/button:translate-x-[200%] transition-transform duration-700 ease-in-out"></div>
                                 {status.type === 'loading' ? (
                                     <>
                                         <div className="w-4 h-4 md:w-5 md:h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
