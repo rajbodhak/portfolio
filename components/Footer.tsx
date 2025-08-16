@@ -102,7 +102,7 @@ export default function ContactSection() {
                     <h1 className='md:px-2 font-bold text-2xl md:text-4xl bg-gradient-to-br from-[#8B0000] via-[#C9184A] to-[#FF4E50] text-transparent bg-clip-text mb-4'>
                         Let's Work Together
                     </h1>
-                    <p className="text-lg md:text-xl text-[#F5F5F5]/80 max-w-2xl mx-auto">
+                    <p className="text-sm md:text-xl text-[#F5F5F5]/80 max-w-2xl mx-auto">
                         Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing.
                     </p>
                 </div>
