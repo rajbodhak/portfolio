@@ -2,67 +2,73 @@ import React from 'react'
 import Link from 'next/link'
 import CustomScreen from './CustomScreen'
 import ProjectCard from './ui/ProjectCard'
-import { FaHtml5, FaCss3, FaReact, FaNodeJs, FaPython, FaGitAlt, FaGithub, FaArrowRight, FaCode } from "react-icons/fa";
+import { FaHtml5, FaCss3, FaReact, FaNodeJs, FaPython, FaGitAlt, FaGithub, FaArrowRight } from "react-icons/fa";
+import { SiAppwrite } from "react-icons/si";
+import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
+import { BiLogoTypescript } from "react-icons/bi";
+import { label } from 'framer-motion/client';
 
 const Projects = () => {
     // All projects data
     const allProjects = [
         {
-            image: '/kolkata.webp',
-            title: 'DevNet',
-            description: 'This is A social media kind of project for developers where Developers can get connected with each others',
+            image: '/duggaKhojSS.webp',
+            title: 'DuggaKhoj',
+            description: 'DuggaKhoj is a full-stack web application built to simplify and enhance the experience of discovering Durga Puja pandals. The platform integrates interactive mapping with Leaflet and React-Leaflet, supports real-time GPS tracking, and enables location-based search and filtering for quick discovery. It also provides pre-planned route suggestions, allowing users to navigate and plan their visits efficiently',
             technologies: [
                 { icon: FaHtml5, label: "HTML5" },
+                { icon: RiTailwindCssFill, label: "Tailwind CSS" },
                 { icon: FaReact, label: "React" },
-                { icon: FaPython, label: "Python" },
-                { icon: FaNodeJs, label: "NodeJs" }
+                { icon: BiLogoTypescript, label: "TypeScript" },
+                { icon: RiNextjsFill, label: "NextJS" },
+                { icon: SiAppwrite, label: "Appwrite" }
             ],
-            liveUrl: 'https://google.com',
-            githubUrl: 'https://github.com/rajbodhak',
-            views: 12
+            liveUrl: 'https://duggakhoj.site',
+            githubUrl: 'https://github.com/rajbodhak'
+
         },
-        {
-            image: '/kolkata.webp',
-            title: 'Portfolio Website',
-            description: 'A modern portfolio website built with Next.js and Tailwind CSS featuring smooth animations and responsive design',
-            technologies: [
-                { icon: FaReact, label: "React" },
-                { icon: FaNodeJs, label: "Next.js" },
-                { icon: FaCss3, label: "Tailwind" },
-                { icon: FaGithub, label: "GitHub" }
-            ],
-            liveUrl: 'https://google.com',
-            githubUrl: 'https://github.com/rajbodhak',
-            views: 25
-        },
-        {
-            image: '/kolkata.webp',
-            title: 'E-Commerce App',
-            description: 'Full-stack e-commerce application with payment integration and admin dashboard',
-            technologies: [
-                { icon: FaReact, label: "React" },
-                { icon: FaNodeJs, label: "Node.js" },
-                { icon: FaPython, label: "Python" },
-                { icon: FaGitAlt, label: "Git" }
-            ],
-            liveUrl: 'https://google.com',
-            githubUrl: 'https://github.com/rajbodhak',
-            views: 45
-        },
-        {
-            image: '/kolkata.webp',
-            title: 'Task Manager',
-            description: 'A collaborative task management tool with real-time updates and team collaboration features',
-            technologies: [
-                { icon: FaReact, label: "React" },
-                { icon: FaNodeJs, label: "Node.js" },
-                { icon: FaHtml5, label: "HTML5" },
-                { icon: FaCss3, label: "CSS3" }
-            ],
-            liveUrl: 'https://google.com',
-            githubUrl: 'https://github.com/rajbodhak',
-            views: 18
-        }
+        // {
+        //     image: '/kolkata.webp',
+        //     title: 'Portfolio Website',
+        //     description: 'A modern portfolio website built with Next.js and Tailwind CSS featuring smooth animations and responsive design',
+        //     technologies: [
+        //         { icon: FaReact, label: "React" },
+        //         { icon: FaNodeJs, label: "Next.js" },
+        //         { icon: FaCss3, label: "Tailwind" },
+        //         { icon: FaGithub, label: "GitHub" }
+        //     ],
+        //     liveUrl: 'https://google.com',
+        //     githubUrl: 'https://github.com/rajbodhak'
+
+        // },
+        // {
+        //     image: '/kolkata.webp',
+        //     title: 'E-Commerce App',
+        //     description: 'Full-stack e-commerce application with payment integration and admin dashboard',
+        //     technologies: [
+        //         { icon: FaReact, label: "React" },
+        //         { icon: FaNodeJs, label: "Node.js" },
+        //         { icon: FaPython, label: "Python" },
+        //         { icon: FaGitAlt, label: "Git" }
+        //     ],
+        //     liveUrl: 'https://google.com',
+        //     githubUrl: 'https://github.com/rajbodhak',
+        //     views: 45
+        // },
+        // {
+        //     image: '/kolkata.webp',
+        //     title: 'Task Manager',
+        //     description: 'A collaborative task management tool with real-time updates and team collaboration features',
+        //     technologies: [
+        //         { icon: FaReact, label: "React" },
+        //         { icon: FaNodeJs, label: "Node.js" },
+        //         { icon: FaHtml5, label: "HTML5" },
+        //         { icon: FaCss3, label: "CSS3" }
+        //     ],
+        //     liveUrl: 'https://google.com',
+        //     githubUrl: 'https://github.com/rajbodhak',
+        //     views: 18
+        // }
     ];
 
     // Get limited projects based on screen size

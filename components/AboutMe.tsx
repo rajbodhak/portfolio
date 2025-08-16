@@ -10,10 +10,10 @@ const AboutMe = () => {
     return (
         <CustomScreen>
             <div className='my-3 flex flex-col md:flex-row items-stretch gap-3'>
-                <div className='flex flex-row md:flex-col gap-3 justify-between
+                <div className='grid grid-cols-2 gap-3 md:grid-cols-1
                 '>
                     {/* Location */}
-                    <div className='relative h-38 w-50 md:h-40 md:w-52 border border-[#FF6B6B] rounded-md overflow-hidden'>
+                    <div className='relative md:h-40 md:w-52 border border-[#FF6B6B] rounded-md overflow-hidden'>
                         <Image src="/kolkata.webp"
                             alt='location'
                             fill
@@ -33,7 +33,7 @@ const AboutMe = () => {
                     </div>
 
                     {/* Availability Status */}
-                    <div className='relative h-38 w-50 md:h-40 md:w-52 border border-[#FF6B6B] rounded-md overflow-hidden flex flex-col pt-2 pb-1 px-2 text-[#E0E0E0] bg-gradient-to-br from-[#1a1a1a] via-[#2a2a2a] to-[#1a1a1a] hover:border-[#FF6B6B]/60 transition-all duration-300 hover:shadow-lg hover:shadow-[#FF6B6B]/10'>
+                    <div className='relative md:h-40 md:w-52 border border-[#FF6B6B] rounded-md overflow-hidden flex flex-col pt-2 pb-1 px-2 text-[#E0E0E0] bg-gradient-to-br from-[#1a1a1a] via-[#2a2a2a] to-[#1a1a1a] hover:border-[#FF6B6B]/60 transition-all duration-300 hover:shadow-lg hover:shadow-[#FF6B6B]/10'>
                         <div className='flex justify-between items-center px-1'>
                             <p className='text-xs md:text-sm'>Availability</p>
                             <span className="relative flex h-2 w-2">

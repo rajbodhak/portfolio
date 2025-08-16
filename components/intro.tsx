@@ -15,12 +15,12 @@ const Intro = () => {
         },
         {
             name: "linkedin",
-            link: "",
+            link: "https://www.linkedin.com/in/rajbodhak/",
             logo: <FaLinkedinIn />
         },
         {
             name: "X",
-            link: "",
+            link: "https://x.com/Rajidesu",
             logo: <FaXTwitter />
         },
         {
