@@ -1,12 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
-import CustomScreen from './CustomScreen'
+
 import ProjectCard from './ui/ProjectCard'
-import { FaHtml5, FaCss3, FaReact, FaNodeJs, FaPython, FaGitAlt, FaGithub, FaArrowRight } from "react-icons/fa";
+import { FaHtml5, FaReact, FaArrowRight } from "react-icons/fa";
 import { SiAppwrite } from "react-icons/si";
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { BiLogoTypescript } from "react-icons/bi";
-import { label } from 'framer-motion/client';
+
 
 const Projects = () => {
     // All projects data

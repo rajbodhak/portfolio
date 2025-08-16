@@ -1,7 +1,6 @@
 //TODO: Later have to work on this 
 
 import React from 'react'
-import CustomScreen from './CustomScreen'
 import { FaHtml5, FaCss3, FaReact, FaNodeJs, FaPython, FaGitAlt, FaGithub } from "react-icons/fa";
 import { RiNextjsLine, RiTailwindCssFill, RiFirebaseFill, RiVercelFill } from "react-icons/ri";
 import { SiShadcnui, SiExpress, SiPrisma, SiTypescript, SiNetlify, SiPostman, SiVite, SiAppwrite, SiCloudinary, SiSocketdotio, SiRedux } from "react-icons/si";

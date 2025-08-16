@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { IoBriefcaseSharp } from "react-icons/io5";
 import { RiGraduationCapFill } from "react-icons/ri";
 import { FaLaptop } from "react-icons/fa";
-import CustomScreen from './CustomScreen';
 
 const AboutMe = () => {
     return (
