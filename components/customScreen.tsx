@@ -7,14 +7,55 @@ interface CustomScreenProps {
 }
 
 const CustomScreen = ({ children }: CustomScreenProps) => {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3, // Delay between each child animation
+                delayChildren: 0.2,   // Initial delay before children start
+            }
+        }
+    };
+
+    const childVariants = {
+        hidden: {
+            opacity: 0,
+            y: 30,
+            filter: "blur(8px)",
+            scale: 0.95
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            scale: 1,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut"
+            }
+        }
+    };
+
+    // Convert children to array and wrap each in motion.div
+    const childrenArray = React.Children.toArray(children);
+
     return (
         <div className='md:w-[865px] mx-auto text-gray-700 dark:text-white font-popins px-3 md:px-0'>
             <motion.div
-                initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.8 }}
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="space-y-0"
             >
-                {children}
+                {childrenArray.map((child, index) => (
+                    <motion.div
+                        key={index}
+                        variants={childVariants}
+                    >
+                        {child}
+                    </motion.div>
+                ))}
             </motion.div>
         </div>
     )
