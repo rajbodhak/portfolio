@@ -48,13 +48,13 @@ const Intro = () => {
                 <div className='text-sm'>
                     <span className="text-[#E0E0E0]">Full Stack Developer</span>
                 </div>
-                <div className='flex flex-wrap gap-2 items-center text-lg md:text-xl mt-2 text-[#FF6B6B]'>
+                <div className='flex flex-wrap gap-2 items-center text-lg md:text-xl mt-2 text-[#FF6B6B] '>
                     {links.map((item) => (
                         <Link
                             key={item.name}
                             href={item.link}
                             target='_blank'
-                            className='border p-1 rounded-sm'
+                            className='border p-1 rounded-sm hover:text-[#fa9090]'
                         >
                             {item.logo}
                         </Link>

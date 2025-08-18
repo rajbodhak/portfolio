@@ -1,6 +1,9 @@
 "use client";
 import { useState } from 'react';
-import { Mail, Github, Linkedin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { BiLogoGmail } from "react-icons/bi";
 
 interface FormData {
     name: string;
@@ -44,7 +47,7 @@ export default function ContactSection() {
             `Hi Raj,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\n---\nSent from your portfolio contact form`
         );
 
-        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=YOUR_ACTUAL_EMAIL@gmail.com&su=${subject}&body=${body}`;
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=rajlaptop2004@gmail.com&su=${subject}&body=${body}`;
 
         setTimeout(() => {
             window.open(gmailUrl, '_blank');
@@ -55,27 +58,33 @@ export default function ContactSection() {
 
     const socialLinks = [
         {
-            icon: Github,
+            icon: FaGithub,
             label: 'GitHub',
             href: 'https://github.com/rajbodhak',
             color: 'hover:text-[#FF6B6B]'
         },
         {
-            icon: Linkedin,
+            icon: FaLinkedinIn,
             label: 'LinkedIn',
             href: 'https://linkedin.com/in/rajbodhak',
             color: 'hover:text-[#FF6B6B]'
         },
         {
-            icon: Mail,
+            icon: BiLogoGmail,
             label: 'Email',
-            href: 'mailto:hello@yourname.com',
+            href: 'mailto:rajlaptop2004@gmail.com',
+            color: 'hover:text-[#FF6B6B]'
+        },
+        {
+            icon: FaXTwitter,
+            label: 'X',
+            href: 'https://x.com/Rajidesu',
             color: 'hover:text-[#FF6B6B]'
         }
     ];
 
     return (
-        <section className="bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] md:mx-0 mx-3 p-3 md:px-3 relative overflow-hidden border border-[#FF6B6B] rounded-md">
+        <section className="bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a]  p-3 md:px-3 relative overflow-hidden border border-[#FF6B6B] rounded-md">
             {/* Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/5 to-transparent"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/10 to-transparent 
@@ -221,22 +230,21 @@ export default function ContactSection() {
 
                             <div className="pt-2 border-t border-[#FF6B6B]/20">
 
-                                <div className="flex space-x-2">
+                                <div className="flex flex-wrap gap-2 items-center text-lg md:text-xl mt-2 text-[#FF6B6B]">
                                     {socialLinks.map((social, index) => (
                                         <a
                                             key={index}
                                             href={social.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="w-9 h-9 border border-[#FF6B6B]/30 rounded-lg flex items-center justify-center text-[#F5F5F5]/60 transition-all duration-200 hover:scale-110 hover:text-[#FF6B6B] hover:border-[#FF6B6B] hover:bg-[#FF6B6B]/10 group/social relative overflow-hidden"
                                             aria-label={social.label}
+                                            className="border p-1 rounded-sm hover:text-[#fa9090]"
                                         >
-                                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/10 to-transparent 
-                                            translate-x-[-100%] group-hover/social:translate-x-[100%] transition-transform duration-500 ease-in-out"></div>
-                                            <social.icon className="w-4 h-4 relative z-10" />
+                                            <social.icon className="w-4 h-4" />
                                         </a>
                                     ))}
                                 </div>
+
                             </div>
                         </div>
                     </div>

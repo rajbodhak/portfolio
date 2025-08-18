@@ -83,7 +83,7 @@ const ProjectCard = ({
                 </div>
 
                 {/* Description */}
-                <p className="text-[#F5F5F5]/80 text-xs sm:text-sm md:text-base leading-relaxed line-clamp-3">
+                <p className="text-[#F5F5F5]/80 text-xs sm:text-sm  leading-relaxed">
                     {description}
                 </p>
 
