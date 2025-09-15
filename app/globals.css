@@ -1,252 +1,95 @@
-/* globals.css for Next.js 15 + Tailwind v4 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@variable&display=swap');
 @import "tailwindcss";
 
-/* Tailwind v4 Configuration - Done in CSS, not JS! */
 @theme {
-  --color-custom-red: #FF6B6B;
-  --color-dark-bg: #0a0a0a;
-  --color-dark-secondary: #1a1a1a;
-  --color-gradient-start: #8B0000;
-  --color-gradient-middle: #C9184A;
-  --color-gradient-end: #FF4E50;
-}
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0D0D0D;
-    --foreground: #ededed;
-  }
-}
-
-/* Animations */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.zoom-effect {
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-delay: 0.1s;
-}
-
-.zoom-effect:hover {
-  transform: scale(1.09);
-  transition-delay: 0.05s;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Universal Component Classes */
-@layer components {
+  /* === FONTS === */
+  --font-family-display: "Cabinet Grotesk Variable", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-body: "Inter Variable", "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-mono: "SF Mono", ui-monospace, Menlo, Monaco, "Cascadia Code", monospace;
   
-  /* CONTAINER CLASSES - Can be used for any main container */
-  .main-container {
-    @apply relative p-3 mb-3 rounded-md overflow-hidden;
-    border: 1px solid var(--color-custom-red);
-    background: linear-gradient(to bottom right, var(--color-dark-bg), var(--color-dark-secondary), var(--color-dark-bg));
-    transition: all 0.3s ease;
-  }
+  /* === COLORS === */
+  /* Custom color palette - these will be available as bg-primary, text-primary, etc. */
+  --color-primary: #0071e3;
+  --color-secondary: #06c;
+  --color-accent: #f56300;
+  --color-success: #03a10e;
+  --color-warning: #ffe045;
+  --color-error: #e30000;
+  
+  /* Light theme colors */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #fafafc;
+  --color-bg-tertiary: #f5f5f7;
+  
+  --color-text-primary: #1d1d1f;
+  --color-text-secondary: #6e6e73;
+  --color-text-tertiary: #86868b;
+  
+  --color-border-primary: #d2d2d7;
+  --color-border-secondary: #e8e8ed;
+}
 
-  .main-container:hover {
-    border-color: rgba(255, 107, 107, 0.6);
-    box-shadow: 0 25px 50px -12px rgba(255, 107, 107, 0.1);
-  }
+/* === DARK THEME === */
+.dark {
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #161617;
+  --color-bg-tertiary: #1d1d1f;
+  
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1a6;
+  --color-text-tertiary: #86868b;
+  
+  --color-border-primary: #38383a;
+  --color-border-secondary: #2c2c2e;
+  
+  --color-primary: #0071e3;
+  --color-secondary: #0099ff;
+  --color-accent: #ff6b35;
+  --color-success: #32d74b;
+  --color-warning: #ffd60a;
+  --color-error: #ff453a;
+}
 
-  /* CARD CLASSES - For any card-like component */
-  .card-container {
-    @apply relative border rounded-lg flex flex-col p-3 overflow-hidden;
-    border-color: rgba(255, 107, 107, 0.5);
-    background: linear-gradient(to bottom right, #1a1a1a, #2a2a2a, #1a1a1a);
-    backdrop-filter: blur(12px);
-    transition: all 0.3s ease;
-  }
-
-  .card-container:hover {
-    @apply -translate-y-1;
-    border-color: var(--color-custom-red);
-    box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.1);
-  }
-
-  /* Alternative card with different hover effect */
-  .card-container-alt {
-    @apply relative border rounded-lg overflow-hidden;
-    border: 1px solid var(--color-custom-red);
-    background: linear-gradient(to bottom right, #1a1a1a, #2a2a2a, #1a1a1a);
-    transition: all 0.3s ease;
-  }
-
-  .card-container-alt:hover {
-    border-color: rgba(255, 107, 107, 0.6);
-    box-shadow: 0 25px 50px -12px rgba(255, 107, 107, 0.1);
-  }
-
-  /* TYPOGRAPHY CLASSES - For consistent text styling */
-  .main-title {
-    @apply font-bold text-2xl md:text-4xl;
-    background: linear-gradient(to bottom right, var(--color-gradient-start), var(--color-gradient-middle), var(--color-gradient-end));
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-
-  .section-title {
-    @apply text-lg md:text-xl font-bold;
-    background: linear-gradient(to bottom right, #F5F5F5, #ee3939, #b80606);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    transition: color 0.3s ease;
-  }
-
-  .section-subtitle {
-    @apply text-2xl md:text-3xl font-bold mb-2;
-    background: linear-gradient(to bottom right, var(--color-gradient-start), var(--color-gradient-middle), var(--color-gradient-end));
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-
-  /* ACCENT CLASSES - For highlights and accents */
-  .accent-text {
-    color: var(--color-custom-red);
-    font-weight: 600;
-  }
-
-  .accent-gradient-bg {
-    background: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-middle), var(--color-gradient-end));
-  }
-
-  .accent-divider {
-    @apply w-full h-px mb-1;
-    background-color: rgba(255, 107, 107, 0.3);
-    transition: background-color 0.3s ease;
-  }
-
-  .card-container:hover .accent-divider,
-  .card-container-alt:hover .accent-divider {
-    background-color: rgba(255, 107, 107, 0.6);
-  }
-
-  .accent-line-thick {
-    @apply h-1 w-20 rounded-full;
-    background: linear-gradient(to right, var(--color-custom-red), var(--color-gradient-end));
-  }
-
-  .accent-line-thin {
-    @apply w-full h-px;
-    background: linear-gradient(to right, transparent, #f87171, transparent);
-  }
-
-  /* INTERACTIVE ELEMENTS */
-  .interactive-top-line {
-    @apply absolute top-0 left-0 right-0 h-px opacity-0;
-    background: linear-gradient(to right, transparent, #f87171, transparent);
-    transition: opacity 0.3s ease;
-  }
-
-  .card-container:hover .interactive-top-line,
-  .card-container-alt:hover .interactive-top-line {
-    @apply opacity-100;
-  }
-
-  .interactive-section-title {
-    @apply text-lg md:text-xl font-bold;
-    background: linear-gradient(to bottom right, #F5F5F5, #ee3939, #b80606);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    transition: color 0.3s ease;
-  }
-
-  .card-container:hover .interactive-section-title {
-    color: var(--color-custom-red);
-  }
-
-  /* BACKGROUND OVERLAYS - For animated effects */
-  .bg-overlay-static {
-    @apply absolute inset-0;
-    background: linear-gradient(to right, transparent, rgba(239, 68, 68, 0.05), transparent);
-  }
-
-  .bg-overlay-animated {
-    @apply absolute inset-0;
-    background: linear-gradient(to right, transparent, rgba(239, 68, 68, 0.1), transparent);
-    transform: translateX(-200%);
-    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .main-container:hover .bg-overlay-animated {
-    transform: translateX(200%);
-  }
-
-  /* ICON CONTAINERS - For consistent icon styling */
-  .icon-container {
-    @apply p-1 rounded-lg;
-    background: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-middle), var(--color-gradient-end));
-  }
-
-  .icon-container .icon {
-    @apply w-3 h-3 text-white;
-  }
-
-  /* CONTENT BOXES - For highlighted content areas */
-  .content-highlight-box {
-    @apply p-3 sm:p-2 rounded-lg border;
-    background: linear-gradient(to right, rgba(255, 107, 107, 0.1), rgba(255, 78, 80, 0.1), rgba(201, 24, 74, 0.1));
-    border-color: rgba(255, 107, 107, 0.2);
-  }
-
-  /* STATUS INDICATORS */
-  .status-dot-container {
-    @apply relative flex h-2 w-2;
-  }
-
-  .status-dot-ping {
-    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75;
-  }
-
-  .status-dot-core {
-    @apply relative inline-flex h-2 w-2 bg-green-500 rounded-full;
-  }
-
-  .status-badge {
-    @apply inline-flex items-center px-2 py-1 rounded-full font-medium text-xs md:text-xs mb-2;
-    background-color: rgba(255, 78, 80, 0.4);
-    color: rgba(34, 197, 94, 0.4); /* green-40 equivalent */
-  }
-
-  /* TEXT COLOR UTILITIES */
-  .text-primary {
-    color: rgba(245, 245, 245, 0.9);
-  }
-
-  .text-secondary {
-    color: rgba(245, 245, 245, 0.8);
-  }
-
-  .text-muted {
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  /* RESPONSIVE GRID HELPERS */
-  .grid-responsive-cards {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-3;
-  }
-
-  .grid-responsive-sidebar {
-    @apply grid grid-cols-2 gap-3 md:grid-cols-1;
+/* Also support system preference */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --color-bg-primary: #000000;
+    --color-bg-secondary: #161617;
+    --color-bg-tertiary: #1d1d1f;
+    
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #a1a1a6;
+    --color-text-tertiary: #86868b;
+    
+    --color-border-primary: #38383a;
+    --color-border-secondary: #2c2c2e;
+    
+    --color-primary: #0071e3;
+    --color-secondary: #0099ff;
+    --color-accent: #ff6b35;
+    --color-success: #32d74b;
+    --color-warning: #ffd60a;
+    --color-error: #ff453a;
   }
 }
 
-/* Plugin imports for v4 (if needed) */
-/* @plugin '@tailwindcss/forms'; */
-/* @plugin '@tailwindcss/typography'; */
+/* === BASE STYLES === */
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === UTILITY CLASSES === */
+.bg-primary-custom { background-color: var(--color-bg-primary); }
+.bg-secondary-custom { background-color: var(--color-bg-secondary); }
+.bg-tertiary-custom { background-color: var(--color-bg-tertiary); }
+
+.text-primary-custom { color: var(--color-text-primary); }
+.text-secondary-custom { color: var(--color-text-secondary); }
+.text-tertiary-custom { color: var(--color-text-tertiary); }
+
+.border-primary-custom { border-color: var(--color-border-primary); }
+.border-secondary-custom { border-color: var(--color-border-secondary); }
