@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconType } from 'react-icons';
-import { FiExternalLink, FiGithub, FiEye } from 'react-icons/fi';
+import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import SkillCard from './SkillCard';
 
 interface ProjectCardProps {
@@ -13,7 +13,6 @@ interface ProjectCardProps {
     }>;
     liveUrl?: string;
     githubUrl?: string;
-    views?: number;
 }
 
 const ProjectCard = ({
@@ -22,73 +21,65 @@ const ProjectCard = ({
     description,
     technologies,
     liveUrl,
-    githubUrl,
-    views
+    githubUrl
 }: ProjectCardProps) => {
     return (
-        <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-[#1a1a1a] via-[#2a2a2a] to-[#1a1a1a] border border-[#FF6B6B]/30 hover:border-[#FF6B6B]/60 transition-all duration-300 hover:shadow-2xl hover:shadow-[#FF6B6B]/10 w-full">
+        <div className="flex flex-col sm:flex-row gap-4 p-4 bg-bg-primary rounded-xl hover:bg-bg-tertiary transition-all duration-200 border border-secondary-custom hover:border-primary-custom/20 hover:scale-105"
+            style={{ boxShadow: 'var(--shadow-neomorph-sm)' }}>
+
             {/* Project Image */}
-            <div className="relative overflow-hidden">
+            <div className="relative w-full sm:w-32 md:w-40 h-24 sm:h-20 md:h-24 flex-shrink-0">
                 <img
                     src={image}
                     alt={title}
-                    className="w-full h-40 sm:h-44 md:h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover rounded-xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
 
-            {/* Card Content */}
-            <div className="p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4">
-                {/* Title and Actions Row */}
-                <div className="flex items-start justify-between gap-2">
-                    <h3 className="text-lg sm:text-xl font-semibold text-[#F5F5F5] group-hover:text-[#FF6B6B] transition-colors duration-300 leading-tight">
+            {/* Project Details */}
+            <div className="flex-1 space-y-3">
+                {/* Title and Links */}
+                <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-lg font-semibold text-primary-custom leading-tight">
                         {title}
                     </h3>
 
-                    <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-                        {/* Live Project Views */}
-                        {views && (
-                            <div className="flex items-center gap-1 text-[#F5F5F5]/70 text-xs sm:text-sm">
-                                <FiEye size={14} className="sm:w-4 sm:h-4" />
-                                <span className="hidden sm:inline">{views.toLocaleString()}</span>
-                            </div>
-                        )}
-
-                        {/* Live Project Link */}
+                    <div className="flex items-center gap-2">
                         {liveUrl && (
                             <a
                                 href={liveUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-1.5 sm:p-2 rounded-lg bg-gradient-to-r from-[#8B0000] via-[#C9184A] to-[#FF4E50] hover:from-[#A0000A] hover:via-[#D4295A] hover:to-[#FF5E60] text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#FF6B6B]/25"
-                                title="View Live Project"
+                                className="p-2 rounded-lg border border-secondary-custom text-secondary-custom hover:bg-secondary-custom hover:text-bg-primary hover:scale-110 transition-all duration-200"
+                                style={{ boxShadow: 'var(--shadow-neomorph-sm)' }}
+                                title="View Live"
                             >
-                                <FiExternalLink size={14} className="sm:w-4 sm:h-4" />
+                                <FiExternalLink size={14} />
                             </a>
                         )}
 
-                        {/* GitHub Link */}
                         {githubUrl && (
                             <a
                                 href={githubUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-1.5 sm:p-2 rounded-lg bg-[#2a2a2a] hover:bg-[#3a3a3a] text-[#F5F5F5]/70 hover:text-[#F5F5F5] transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#2a2a2a]/50"
-                                title="View Source Code"
+                                className="p-2 rounded-lg border border-secondary-custom text-secondary-custom hover:bg-secondary-custom hover:text-bg-primary hover:scale-110 transition-all duration-200"
+                                style={{ boxShadow: 'var(--shadow-neomorph-sm)' }}
+                                title="View Code"
                             >
-                                <FiGithub size={14} className="sm:w-4 sm:h-4" />
+                                <FiGithub size={14} />
                             </a>
                         )}
                     </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-[#F5F5F5]/80 text-xs sm:text-sm  leading-relaxed">
+                <p className="text-sm text-secondary-custom leading-relaxed">
                     {description}
                 </p>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 sm:pt-2">
+                <div className="flex flex-wrap gap-1.5">
                     {technologies.map((tech, index) => (
                         <SkillCard
                             key={`${tech.label}-${index}`}
@@ -98,9 +89,6 @@ const ProjectCard = ({
                     ))}
                 </div>
             </div>
-
-            {/* Subtle glow effect */}
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#FF6B6B]/0 via-[#FF6B6B]/5 to-[#FF4E50]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
         </div>
     );
 };
