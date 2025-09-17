@@ -12,7 +12,7 @@ export function ThemeToggle() {
         setMounted(true)
     }, [])
 
-    if (!mounted) return null
+    if (!mounted) return <Sun className="w-full h-full" />
 
     const isDark = resolvedTheme === 'dark'
 
@@ -21,16 +21,15 @@ export function ThemeToggle() {
     }
 
     return (
-        <button
+        <div
             onClick={toggleTheme}
-            className="p-2 rounded-lg bg-secondary-custom border border-primary-custom text-primary-custom hover:bg-tertiary-custom transition-all duration-200 hover:scale-105"
-            aria-label="Toggle theme"
+            className="w-full h-full flex items-center justify-center cursor-pointer text-secondary-custom"
         >
             {isDark ? (
-                <Sun size={20} className="text-yellow-400" />
+                <Sun className="w-full h-full " />
             ) : (
-                <Moon size={20} className="text-blue-500" />
+                <Moon className="w-full h-full " />
             )}
-        </button>
+        </div>
     )
 }

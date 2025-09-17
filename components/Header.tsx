@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react'
 import { Clock } from 'lucide-react';
+import { ThemeToggle } from './ui/ThemeToggle';
 
 const Header = () => {
     const [currentTime, setCurrentTime] = useState<Date | null>(null);
@@ -36,27 +37,23 @@ const Header = () => {
     // Show loading state until mounted
     if (!mounted) {
         return (
-            <div className='w-full flex justify-end items-center px-3 py-2'>
-                <div className="flex items-center space-x-2 text-sm text-[#ffb0b0]">
+            <div className='w-full flex justify-between items-center px-3 py-2'>
+                <div className="flex items-center space-x-2 text-sm text-text-secondary">
                     <Clock className="w-4 h-4" />
                     <span>Local Time: --:--, --/--/----</span>
                 </div>
-                {/* <div>
-                    <div className="w-10 h-10 rounded-lg bg-gray-200 dark:bg-gray-700 animate-pulse" />
-                </div> */}
+                <div className="w-24 h-10 bg-surface rounded-lg animate-pulse" />
             </div>
         );
     }
 
     return (
-        <div className='w-full flex justify-end items-center px-3 py-2 text-[#ffb0b0]'>
-            <div className="flex items-center space-x-2 text-sm">
+        <div className='w-full flex justify-between items-center px-3 py-2'>
+            <div className="flex items-center space-x-2 text-sm text-text-secondary">
                 <Clock className="w-4 h-4" />
                 <span>{currentTime ? formatDateTime(currentTime) : 'Local Time: --:--, --/--/----'}</span>
             </div>
-            <div>
 
-            </div>
         </div>
     )
 }
