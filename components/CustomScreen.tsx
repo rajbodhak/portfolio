@@ -31,8 +31,7 @@ const CustomScreen = ({ children }: CustomScreenProps) => {
             filter: "blur(0px)",
             scale: 1,
             transition: {
-                duration: 0.6,
-                ease: "easeOut"
+                duration: 0.6
             }
         }
     };
