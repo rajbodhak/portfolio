@@ -45,68 +45,31 @@ const FloatingDockMobile = ({
     }[];
     className?: string;
 }) => {
-    const [open, setOpen] = useState(false);
+    let touchX = useMotionValue(Infinity);
+
     return (
-        <div className={cn("relative block md:hidden", className)}>
-            <AnimatePresence>
-                {open && (
-                    <motion.div
-                        layoutId="nav"
-                        className="absolute inset-x-0 bottom-full mb-2 flex flex-col gap-2"
-                    >
-                        {items.map((item, idx) => (
-                            <motion.div
-                                key={item.title}
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{
-                                    opacity: 1,
-                                    y: 0,
-                                }}
-                                exit={{
-                                    opacity: 0,
-                                    y: 10,
-                                    transition: {
-                                        delay: idx * 0.05,
-                                    },
-                                }}
-                                transition={{ delay: (items.length - 1 - idx) * 0.05 }}
-                            >
-                                {item.href ? (
-                                    <a
-                                        href={item.href}
-                                        key={item.title}
-                                        className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary-custom border border-secondary-custom"
-                                        style={{ boxShadow: 'var(--shadow-neomorph-sm)' }}
-                                    >
-                                        <div className="h-5 w-5 text-primary-custom">{item.icon}</div>
-                                    </a>
-                                ) : (
-                                    <button
-                                        onClick={item.onClick}
-                                        key={item.title}
-                                        className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary-custom border border-secondary-custom"
-                                        style={{ boxShadow: 'var(--shadow-neomorph-sm)' }}
-                                    >
-                                        <div className="h-5 w-5 text-primary-custom">{item.icon}</div>
-                                    </button>
-                                )}
-                            </motion.div>
-                        ))}
-                    </motion.div>
-                )}
-            </AnimatePresence>
-            <button
-                onClick={() => setOpen(!open)}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary-custom border border-secondary-custom text-primary-custom"
-                style={{ boxShadow: 'var(--shadow-neomorph-sm)' }}
-            >
-                {open ? (
-                    <X className="h-5 w-5" />
-                ) : (
-                    <Menu className="h-5 w-5" />
-                )}
-            </button>
-        </div>
+        <motion.div
+            onTouchMove={(e) => {
+                const touch = e.touches[0];
+                if (touch) {
+                    touchX.set(touch.pageX);
+                }
+            }}
+            onTouchEnd={() => touchX.set(Infinity)}
+            className={cn(
+                "mx-auto h-16 items-end gap-4 rounded-2xl bg-secondary-custom px-4 pb-3 md:hidden border border-secondary-custom flex",
+                className,
+            )}
+            style={{ boxShadow: 'var(--shadow-3d-border)' }}
+        >
+            {items.map((item) => (
+                <IconContainer
+                    mouseX={touchX}
+                    key={item.title}
+                    {...item}
+                />
+            ))}
+        </motion.div>
     );
 };
 
@@ -210,6 +173,8 @@ function IconContainer({
                 }}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
+                onTouchStart={() => setHovered(true)}
+                onTouchEnd={() => setHovered(false)}
                 className="relative flex aspect-square items-center justify-center rounded-full bg-primary-custom border border-secondary-custom"
             >
                 <AnimatePresence>
