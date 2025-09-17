@@ -23,7 +23,7 @@ const AboutMe = () => {
             </div>
 
             {/* Location & Status - Compact Design */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-row gap-3">
                 {/* Location */}
                 <div className="flex items-center gap-3 bg-bg-secondary rounded-xl p-4 flex-1"
                     style={{ boxShadow: 'var(--shadow-3d-border)' }}>
