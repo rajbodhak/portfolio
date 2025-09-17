@@ -30,7 +30,7 @@ const Intro = () => {
         }
     ]
     return (
-        <section id='home' className='mt-3'>
+        <section id='home' className='mt-4'>
             <div className='flex flex-row gap-3 items-center'>
                 <div className='relative size-28 md:size-36 bg-bg-primary rounded-2xl p-1'
                     style={{ boxShadow: 'var(--shadow-3d-border-lg)' }}>
