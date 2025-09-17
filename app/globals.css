@@ -18,16 +18,33 @@
   --color-error: #e30000;
   
   /* Light theme colors */
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #fafafc;
+  --color-bg-primary: #fafafc;
+  --color-bg-secondary: #ffffff;
   --color-bg-tertiary: #f5f5f7;
   
   --color-text-primary: #1d1d1f;
   --color-text-secondary: #6e6e73;
   --color-text-tertiary: #86868b;
   
-  --color-border-primary: #d2d2d7;
+  --color-border-primary: #38383a;
   --color-border-secondary: #e8e8ed;
+
+  /* === NEUMORPHISM SHADOWS === */
+  --shadow-neomorph: 12px 12px 24px rgba(0, 0, 0, 0.15), -12px -12px 24px rgba(255, 255, 255, 0.9);
+  --shadow-neomorph-hover: 16px 16px 32px rgba(0, 0, 0, 0.2), -16px -16px 32px rgba(255, 255, 255, 1);
+  --shadow-neomorph-inset: inset 8px 8px 16px rgba(0, 0, 0, 0.12), inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+  --shadow-neomorph-sm: 6px 6px 12px rgba(0, 0, 0, 0.12), -6px -6px 12px rgba(255, 255, 255, 0.8);
+  --shadow-neomorph-lg: 20px 20px 40px rgba(0, 0, 0, 0.18), -20px -20px 40px rgba(255, 255, 255, 1);
+  
+  /* === PROPER 3D BORDER SHADOWS === */
+  --shadow-3d-border: 
+    4px 4px 8px rgba(0, 0, 0, 0.2),
+    4px -4px 8px rgba(0, 0, 0, 0.1),
+    -4px 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-3d-border-lg: 
+    6px 6px 12px rgba(0, 0, 0, 0.25),
+    6px -6px 12px rgba(0, 0, 0, 0.15),
+    -6px 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* === DARK THEME === */
@@ -49,6 +66,23 @@
   --color-success: #32d74b;
   --color-warning: #ffd60a;
   --color-error: #ff453a;
+
+  /* Dark theme shadows */
+  --shadow-neomorph: 12px 12px 24px rgba(0, 0, 0, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.03);
+  --shadow-neomorph-hover: 16px 16px 32px rgba(0, 0, 0, 0.8), -16px -16px 32px rgba(255, 255, 255, 0.05);
+  --shadow-neomorph-inset: inset 8px 8px 16px rgba(0, 0, 0, 0.5), inset -8px -8px 16px rgba(255, 255, 255, 0.02);
+  --shadow-neomorph-sm: 6px 6px 12px rgba(0, 0, 0, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.025);
+  --shadow-neomorph-lg: 20px 20px 40px rgba(0, 0, 0, 0.7), -20px -20px 40px rgba(255, 255, 255, 0.04);
+
+  /* === PROPER 3D BORDER SHADOWS FOR DARK === */
+  --shadow-3d-border: 
+    4px 4px 8px rgba(255, 255, 255, 0.1),
+    4px -4px 8px rgba(255, 255, 255, 0.05),
+    -4px 4px 8px rgba(255, 255, 255, 0.05);
+  --shadow-3d-border-lg: 
+    6px 6px 12px rgba(255, 255, 255, 0.15),
+    6px -6px 12px rgba(255, 255, 255, 0.08),
+    -6px 6px 12px rgba(255, 255, 255, 0.08);
 }
 
 /* Also support system preference */
@@ -71,6 +105,23 @@
     --color-success: #32d74b;
     --color-warning: #ffd60a;
     --color-error: #ff453a;
+
+    /* System dark theme shadows */
+    --shadow-neomorph: 12px 12px 24px rgba(0, 0, 0, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.03);
+    --shadow-neomorph-hover: 16px 16px 32px rgba(0, 0, 0, 0.8), -16px -16px 32px rgba(255, 255, 255, 0.05);
+    --shadow-neomorph-inset: inset 8px 8px 16px rgba(0, 0, 0, 0.5), inset -8px -8px 16px rgba(255, 255, 255, 0.02);
+    --shadow-neomorph-sm: 6px 6px 12px rgba(0, 0, 0, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.025);
+    --shadow-neomorph-lg: 20px 20px 40px rgba(0, 0, 0, 0.7), -20px -20px 40px rgba(255, 255, 255, 0.04);
+
+    /* === SYSTEM DARK 3D BORDER SHADOWS === */
+    --shadow-3d-border: 
+      4px 4px 8px rgba(255, 255, 255, 0.1),
+      4px -4px 8px rgba(255, 255, 255, 0.05),
+      -4px 4px 8px rgba(255, 255, 255, 0.05);
+    --shadow-3d-border-lg: 
+      6px 6px 12px rgba(255, 255, 255, 0.15),
+      6px -6px 12px rgba(255, 255, 255, 0.08),
+      -6px 6px 12px rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -93,3 +144,86 @@ body {
 
 .border-primary-custom { border-color: var(--color-border-primary); }
 .border-secondary-custom { border-color: var(--color-border-secondary); }
+
+/* === GLASSMORPHISM CARD === */
+/* From Uiverse.io by joey_8229 */ 
+.card {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  border-radius: 14px;
+  z-index: 1111;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    20px 20px 60px #bebebe,
+    -20px -20px 60px #ffffff;
+}
+
+.dark .card {
+  box-shadow:
+    20px 20px 60px rgba(0, 0, 0, 0.4),
+    -20px -20px 60px rgba(255, 255, 255, 0.02);
+}
+
+.bg {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 190px;
+  height: 240px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  border-radius: 10px;
+  overflow: hidden;
+  outline: 2px solid white;
+}
+
+.dark .bg {
+  background: rgba(22, 22, 23, 0.95);
+  outline: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.blob {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #08080831;
+  opacity: 1;
+  filter: blur(12px);
+  animation: blob-bounce 5s infinite ease;
+}
+
+.dark .blob {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+@keyframes blob-bounce {
+  0% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+  }
+
+  50% {
+    transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+  }
+
+  75% {
+    transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+  }
+
+  100% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+}
