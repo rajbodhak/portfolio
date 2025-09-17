@@ -110,7 +110,7 @@ const ProjectCard = ({
                             className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 bg-primary-custom text-secondary-custom rounded-lg font-medium hover:bg-secondary hover:scale-[1.02] transition-all duration-200"
                         >
                             <FiExternalLink size={14} />
-                            <span>Live Demo</span>
+                            <span>Demo</span>
                         </a>
                     )}
 

@@ -57,7 +57,7 @@ const Projects = () => {
         <section id='projects' className="bg-secondary-custom rounded-2xl p-6 mt-3 md:mt-5"
             style={{ boxShadow: 'var(--shadow-3d-border)' }}>
 
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-3">
                 <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-primary-custom mb-2">
                         Featured Projects
@@ -69,7 +69,7 @@ const Projects = () => {
             </div>
 
             {/* Projects Grid - 1 per row on mobile, 2 per row on desktop */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
                 {allProjects.slice(0, 4).map((project, index) => (
                     <ProjectCard key={index} {...project} />
                 ))}

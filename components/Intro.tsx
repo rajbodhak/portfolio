@@ -30,7 +30,7 @@ const Intro = () => {
         }
     ]
     return (
-        <section id='home'>
+        <section id='home' className='mt-3'>
             <div className='flex flex-row gap-3 items-center'>
                 <div className='relative size-28 md:size-36 bg-bg-primary rounded-2xl p-1'
                     style={{ boxShadow: 'var(--shadow-3d-border-lg)' }}>
@@ -55,7 +55,7 @@ const Intro = () => {
                                 key={item.name}
                                 href={item.link}
                                 target='_blank'
-                                className='border p-1 rounded-sm hover:text-secondary-custom'
+                                className='border p-1 rounded-sm hover:scale-105 transition-transform duration-200'
                             >
                                 {item.logo}
                             </Link>

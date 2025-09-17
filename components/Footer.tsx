@@ -12,19 +12,19 @@ const CallToAction = () => {
             icon: FaGithub,
             label: 'GitHub',
             href: 'https://github.com/rajbodhak',
-            description: 'View my code'
+            description: 'View code'
         },
         {
             icon: FaLinkedinIn,
             label: 'LinkedIn',
             href: 'https://linkedin.com/in/rajbodhak',
-            description: 'Connect professionally'
+            description: 'Connect'
         },
         {
             icon: BiLogoGmail,
             label: 'Email',
             href: 'mailto:rajlaptop2004@gmail.com',
-            description: 'Send me an email'
+            description: 'Send email'
         },
         {
             icon: FaXTwitter,
