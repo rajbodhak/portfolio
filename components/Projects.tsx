@@ -10,7 +10,7 @@ const Projects = () => {
     // All projects data
     const allProjects = [
         {
-            image: '/duggaKhojSS.webp',
+            image: '/duggakhojSS.webp',
             title: 'DuggaKhoj',
             description: 'DuggaKhoj is a full-stack web application built to simplify and enhance the experience of discovering Durga Puja pandals. The platform integrates interactive mapping with Leaflet and React-Leaflet, supports real-time GPS tracking, and enables location-based search and filtering for quick discovery.',
             technologies: [
@@ -25,7 +25,7 @@ const Projects = () => {
             githubUrl: 'https://github.com/rajbodhak'
         },
         {
-            image: '/duggaKhojSS.webp',
+            image: '/duggakhojSS.webp',
             title: 'Portfolio Website',
             description: 'A modern, responsive portfolio website built with Next.js and TypeScript. Features dark/light theme switching, smooth animations, and a clean design showcasing projects and skills.',
             technologies: [
@@ -38,7 +38,7 @@ const Projects = () => {
             githubUrl: 'https://github.com/rajbodhak'
         },
         {
-            image: '/duggaKhojSS.webp',
+            image: '/duggakhojSS.webp',
             title: 'E-Commerce Dashboard',
             description: 'A comprehensive admin dashboard for managing e-commerce operations. Built with React and modern UI libraries, featuring analytics, inventory management, and order tracking.',
             technologies: [
