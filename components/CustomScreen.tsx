@@ -12,8 +12,8 @@ const CustomScreen = ({ children }: CustomScreenProps) => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.3, // Delay between each child animation
-                delayChildren: 0.2,   // Initial delay before children start
+                staggerChildren: 0.3,
+                delayChildren: 0.2,
             }
         }
     };
@@ -41,7 +41,7 @@ const CustomScreen = ({ children }: CustomScreenProps) => {
     const childrenArray = React.Children.toArray(children);
 
     return (
-        <div className='md:w-[865px] mx-auto text-gray-700 dark:text-white font-popins px-3 md:px-0'>
+        <div className='md:w-[765px] mx-auto text-gray-700 dark:text-white font-popins px-3 md:px-0'>
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
