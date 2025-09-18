@@ -25,7 +25,7 @@ const Intro = () => {
         },
         {
             name: "gmail",
-            link: "",
+            link: "mailto:rajlaptop2004@gmail.com",
             logo: <BiLogoGmail />
         }
     ]
