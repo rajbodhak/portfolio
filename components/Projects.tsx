@@ -26,7 +26,7 @@ const Projects = () => {
         },
         {
             image: '/duggakhojSS.webp',
-            title: 'Portfolio Website',
+            title: 'Rezumify',
             description: 'A modern, responsive portfolio website built with Next.js and TypeScript. Features dark/light theme switching, smooth animations, and a clean design showcasing projects and skills.',
             technologies: [
                 { icon: FaReact, label: "React" },
