@@ -1,14 +1,17 @@
+"use client";
+
 import React from 'react'
 import Link from 'next/link'
 import ProjectCard from './ui/ProjectCard'
-import { FaHtml5, FaReact, FaArrowRight } from "react-icons/fa";
-import { SiAppwrite, SiPrisma, SiPostgresql, SiSupabase, SiGooglecloud } from "react-icons/si";
+import DeveloperToolCard from './ui/DeveloperToolCard';
+import { FaHtml5, FaReact, FaArrowRight, FaNodeJs } from "react-icons/fa";
+import { SiAppwrite, SiPrisma, SiPostgresql, SiSupabase, SiGooglecloud, SiOpenai } from "react-icons/si";
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { BiLogoTypescript } from "react-icons/bi";
 
 const Projects = () => {
-    // All projects data
-    const allProjects = [
+    // Web Applications
+    const webApps = [
         {
             image: '/duggakhojSS.webp',
             title: 'DuggaKhoj',
@@ -40,28 +43,34 @@ const Projects = () => {
             ],
             liveUrl: 'https://rezumify.vercel.app/',
             githubUrl: 'https://github.com/rajbodhak/resume-analyzer'
-        },
-        {
-            image: '/duggakhojSS.webp',
-            title: 'E-Commerce Dashboard',
-            description: 'A comprehensive admin dashboard for managing e-commerce operations. Built with React and modern UI libraries, featuring analytics, inventory management, and order tracking.',
-            technologies: [
-                { icon: FaReact, label: "React" },
-                { icon: BiLogoTypescript, label: "TypeScript" },
-                { icon: RiTailwindCssFill, label: "Tailwind CSS" }
-            ],
-            liveUrl: 'https://example.com',
-            githubUrl: 'https://github.com/rajbodhak'
         }
     ];
 
-    const hasMoreProjects = allProjects.length > 3;
+    // Developer Tools
+    const developerTools = [
+        {
+            title: 'AICX',
+            description: 'AI-powered CLI tool that generates beautiful, conventional commit messages and auto-pushes to remote. Say goodbye to "fix stuff" commits! Supports both OpenAI and Gemini with regenerate and edit options. Features include interactive workflow, auto-push, and conventional commits format.',
+            technologies: [
+                { icon: FaNodeJs, label: "Node.js" },
+                { icon: BiLogoTypescript, label: "TypeScript" },
+                { icon: SiOpenai, label: "OpenAI" },
+                { icon: SiGooglecloud, label: "Google Gemini" }
+            ],
+            packageName: 'aicx',
+            installCommand: 'npm i -g aicx',
+            npmUrl: 'https://www.npmjs.com/package/aicx',
+            githubUrl: 'https://github.com/rajbodhak/aicx'
+        }
+    ];
+
+    const hasMoreProjects = (webApps.length + developerTools.length) > 4;
 
     return (
         <section id='projects' className="bg-secondary-custom rounded-2xl p-6 mt-3 md:mt-5"
             style={{ boxShadow: 'var(--shadow-3d-border)' }}>
 
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-6">
                 <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-primary-custom mb-2">
                         Featured Projects
@@ -72,12 +81,39 @@ const Projects = () => {
                 </div>
             </div>
 
-            {/* Projects Grid - 1 per row on mobile, 2 per row on desktop */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
-                {allProjects.slice(0, 4).map((project, index) => (
-                    <ProjectCard key={index} {...project} />
-                ))}
+            {/* Web Applications Section */}
+            <div className="mb-8">
+                <div className="flex items-center gap-2 mb-4">
+                    <div className="w-1 h-6 bg-primary-custom rounded-full"></div>
+                    <h3 className="text-xl font-semibold text-primary-custom">
+                        Web Applications
+                    </h3>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {webApps.slice(0, 4).map((project, index) => (
+                        <ProjectCard key={index} {...project} />
+                    ))}
+                </div>
             </div>
+
+            {/* Developer Tools Section */}
+            {developerTools.length > 0 && (
+                <div className="mb-6">
+                    <div className="flex items-center gap-2 mb-4">
+                        <div className="w-1 h-6 bg-primary-custom rounded-full"></div>
+                        <h3 className="text-xl font-semibold text-primary-custom">
+                            Developer Tools
+                        </h3>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {developerTools.map((tool, index) => (
+                            <DeveloperToolCard key={index} {...tool} />
+                        ))}
+                    </div>
+                </div>
+            )}
 
             {/* View All Projects Button */}
             {hasMoreProjects && (

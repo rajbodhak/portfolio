@@ -44,7 +44,7 @@ const ProjectCard = ({
                             href={liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2.5 bg-secondary-custom/90 backdrop-blur-sm rounded-lg border border-secondary-custom text-primary-custom hover:bg-primary-custom hover:text-secondary-custom transition-all duration-200"
+                            className="p-2.5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white hover:bg-primary-custom hover:text-secondary-custom hover:border-primary-custom transition-all duration-200 shadow-lg"
                             title="View Live"
                         >
                             <FiExternalLink size={16} />
@@ -56,7 +56,7 @@ const ProjectCard = ({
                             href={githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2.5 bg-secondary-custom/90 backdrop-blur-sm rounded-lg border border-secondary-custom text-primary-custom hover:bg-primary-custom hover:text-secondary-custom transition-all duration-200"
+                            className="p-2.5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white hover:bg-primary-custom hover:text-secondary-custom hover:border-primary-custom transition-all duration-200 shadow-lg"
                             title="View Code"
                         >
                             <FiGithub size={16} />
