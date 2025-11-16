@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaReact, FaNodeJs, FaPython, FaGitAlt } from "react-icons/fa";
 import { RiNextjsLine, RiTailwindCssFill, RiFirebaseFill } from "react-icons/ri";
-import { SiExpress, SiPrisma, SiTypescript, SiPostman } from "react-icons/si";
+import { SiExpress, SiPrisma, SiTypescript, SiPostman, SiSupabase } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { DiMongodb } from "react-icons/di";
 import { IoLogoJavascript } from "react-icons/io";
@@ -21,6 +21,7 @@ const SkillsAndTools = () => {
         { icon: SiPrisma, name: "Prisma" },
         { icon: RiTailwindCssFill, name: "Tailwind" },
         { icon: RiFirebaseFill, name: "Firebase" },
+        { icon: SiSupabase, name: "Supabase" },
         { icon: FaGitAlt, name: "Git" },
         { icon: VscVscode, name: "VS Code" },
         { icon: SiPostman, name: "Postman" },

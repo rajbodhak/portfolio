@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import ProjectCard from './ui/ProjectCard'
 import { FaHtml5, FaReact, FaArrowRight } from "react-icons/fa";
-import { SiAppwrite } from "react-icons/si";
+import { SiAppwrite, SiPrisma, SiPostgresql, SiSupabase, SiGooglecloud } from "react-icons/si";
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { BiLogoTypescript } from "react-icons/bi";
 
@@ -25,17 +25,21 @@ const Projects = () => {
             githubUrl: 'https://github.com/rajbodhak'
         },
         {
-            image: '/duggakhojSS.webp',
+            image: '/rezumify.webp',
             title: 'Rezumify',
-            description: 'A modern, responsive portfolio website built with Next.js and TypeScript. Features dark/light theme switching, smooth animations, and a clean design showcasing projects and skills.',
+            description: 'Rezumify is an AI-powered resume analyzer that evaluates resumes, matches them with job descriptions, and provides precise improvement suggestions. It highlights ATS compatibility, missing keywords, skill gaps, and offers scoring with a modern, responsive UI.',
             technologies: [
                 { icon: FaReact, label: "React" },
                 { icon: BiLogoTypescript, label: "TypeScript" },
                 { icon: RiNextjsFill, label: "NextJS" },
-                { icon: RiTailwindCssFill, label: "Tailwind CSS" }
+                { icon: RiTailwindCssFill, label: "Tailwind CSS" },
+                { icon: SiPrisma, label: "Prisma" },
+                { icon: SiPostgresql, label: "PostgreSQL" },
+                { icon: SiSupabase, label: "Supabase" },
+                { icon: SiGooglecloud, label: "Google Gemini AI" }
             ],
-            liveUrl: 'https://example.com',
-            githubUrl: 'https://github.com/rajbodhak'
+            liveUrl: 'https://rezumify.vercel.app/',
+            githubUrl: 'https://github.com/rajbodhak/resume-analyzer'
         },
         {
             image: '/duggakhojSS.webp',
