@@ -4,65 +4,12 @@ import React from 'react'
 import Link from 'next/link'
 import ProjectCard from './ui/ProjectCard'
 import DeveloperToolCard from './ui/DeveloperToolCard';
-import { FaHtml5, FaReact, FaArrowRight, FaNodeJs } from "react-icons/fa";
-import { SiAppwrite, SiPrisma, SiPostgresql, SiSupabase, SiGooglecloud, SiOpenai } from "react-icons/si";
-import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
-import { BiLogoTypescript } from "react-icons/bi";
+import { FaArrowRight } from "react-icons/fa";
+import { getWebApplications, getDeveloperTools } from '@/lib/projectsData';
 
 const Projects = () => {
-    // Web Applications
-    const webApps = [
-        {
-            image: '/duggakhojSS.webp',
-            title: 'DuggaKhoj',
-            description: 'DuggaKhoj is a full-stack web application built to simplify and enhance the experience of discovering Durga Puja pandals. The platform integrates interactive mapping with Leaflet and React-Leaflet, supports real-time GPS tracking, and enables location-based search and filtering for quick discovery.',
-            technologies: [
-                { icon: FaHtml5, label: "HTML5" },
-                { icon: RiTailwindCssFill, label: "Tailwind CSS" },
-                { icon: FaReact, label: "React" },
-                { icon: BiLogoTypescript, label: "TypeScript" },
-                { icon: RiNextjsFill, label: "NextJS" },
-                { icon: SiAppwrite, label: "Appwrite" }
-            ],
-            liveUrl: 'https://duggakhoj.site',
-            githubUrl: 'https://github.com/rajbodhak'
-        },
-        {
-            image: '/rezumify.webp',
-            title: 'Rezumify',
-            description: 'Rezumify is an AI-powered resume analyzer that evaluates resumes, matches them with job descriptions, and provides precise improvement suggestions. It highlights ATS compatibility, missing keywords, skill gaps, and offers scoring with a modern, responsive UI.',
-            technologies: [
-                { icon: FaReact, label: "React" },
-                { icon: BiLogoTypescript, label: "TypeScript" },
-                { icon: RiNextjsFill, label: "NextJS" },
-                { icon: RiTailwindCssFill, label: "Tailwind CSS" },
-                { icon: SiPrisma, label: "Prisma" },
-                { icon: SiPostgresql, label: "PostgreSQL" },
-                { icon: SiSupabase, label: "Supabase" },
-                { icon: SiGooglecloud, label: "Google Gemini AI" }
-            ],
-            liveUrl: 'https://rezumify.vercel.app/',
-            githubUrl: 'https://github.com/rajbodhak/resume-analyzer'
-        }
-    ];
-
-    // Developer Tools
-    const developerTools = [
-        {
-            title: 'AICX',
-            description: 'AI-powered CLI tool that generates beautiful, conventional commit messages and auto-pushes to remote. Say goodbye to "fix stuff" commits! Supports both OpenAI and Gemini with regenerate and edit options. Features include interactive workflow, auto-push, and conventional commits format.',
-            technologies: [
-                { icon: FaNodeJs, label: "Node.js" },
-                { icon: BiLogoTypescript, label: "TypeScript" },
-                { icon: SiOpenai, label: "OpenAI" },
-                { icon: SiGooglecloud, label: "Google Gemini" }
-            ],
-            packageName: 'aicx',
-            installCommand: 'npm i -g aicx',
-            npmUrl: 'https://www.npmjs.com/package/aicx',
-            githubUrl: 'https://github.com/rajbodhak/aicx'
-        }
-    ];
+    const webApps = getWebApplications();
+    const developerTools = getDeveloperTools();
 
     const hasMoreProjects = (webApps.length + developerTools.length) > 4;
 
@@ -91,8 +38,17 @@ const Projects = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {webApps.slice(0, 4).map((project, index) => (
-                        <ProjectCard key={index} {...project} />
+                    {webApps.slice(0, 4).map((project) => (
+                        <ProjectCard
+                            key={project.id}
+                            projectId={project.id}
+                            image={project.image}
+                            title={project.title}
+                            description={project.description}
+                            technologies={project.technologies}
+                            liveUrl={project.liveUrl}
+                            githubUrl={project.githubUrl}
+                        />
                     ))}
                 </div>
             </div>
@@ -108,8 +64,18 @@ const Projects = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {developerTools.map((tool, index) => (
-                            <DeveloperToolCard key={index} {...tool} />
+                        {developerTools.map((tool) => (
+                            <DeveloperToolCard
+                                key={tool.id}
+                                projectId={tool.id}
+                                title={tool.title}
+                                description={tool.description}
+                                technologies={tool.technologies}
+                                packageName={tool.packageName}
+                                installCommand={tool.installCommand}
+                                npmUrl={tool.npmUrl}
+                                githubUrl={tool.githubUrl}
+                            />
                         ))}
                     </div>
                 </div>
