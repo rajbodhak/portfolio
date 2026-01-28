@@ -1,15 +1,26 @@
 'use client'
 import { FloatingDock } from "@/components/ui/floating-dock";
-import { Home, User, Code, Mail } from "lucide-react";
+import { Home, Code } from "lucide-react";
 import { ThemeToggle } from "./ui/ThemeToggle";
-
-const dockItems = [
-    { title: "Home", icon: <Home className="w-full h-full" />, href: "#home" },
-    { title: "Projects", icon: <Code className="w-full h-full" />, href: "#projects" },
-    { title: "Theme", icon: <ThemeToggle />, onClick: () => { } },
-];
+import { useTheme } from "next-themes";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
+    const { theme, setTheme, resolvedTheme } = useTheme();
+
+    const toggleTheme = () => {
+        setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+    };
+
+    const dockItems = [
+        { title: "Home", icon: <Home className="w-full h-full" />, href: "#home" },
+        { title: "Projects", icon: <Code className="w-full h-full" />, href: "#projects" },
+        {
+            title: "Theme",
+            icon: <ThemeToggle />,
+            onClick: toggleTheme
+        },
+    ];
+
     return (
         <>
             {children}
