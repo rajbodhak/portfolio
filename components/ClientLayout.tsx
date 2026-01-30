@@ -12,8 +12,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     };
 
     const dockItems = [
-        { title: "Home", icon: <Home className="w-full h-full" />, href: "#home" },
-        { title: "Projects", icon: <Code className="w-full h-full" />, href: "#projects" },
+        { title: "Home", icon: <Home className="w-full h-full" />, href: "/#home" },
+        { title: "Projects", icon: <Code className="w-full h-full" />, href: "/#projects" },
         {
             title: "Theme",
             icon: <ThemeToggle />,
